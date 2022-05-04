@@ -17,7 +17,10 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 
+from petclub.views import PersonAPIView, PetAPIView
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
+    path('pets/', PetAPIView.as_view(), name="pets"),
+    path('persons/', PersonAPIView.as_view(), name="persons"),
 ]
